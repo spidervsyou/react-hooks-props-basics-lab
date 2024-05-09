@@ -1,20 +1,23 @@
-import React from "react";
-import NavBar from "./NavBar";
-import Home from "./Home";
-import About from "./About";
+import React from 'react';
+import Home from './Home';
+import About from './About';
 
-// pass this data down as props to the child component(s) that need it!
-import user from "../data/user";
-console.log(user);
+class App extends React.Component {
+  render() {
+    const user = {
+      name: 'John Doe',
+      bio: 'A passionate developer',
+      github: 'https://github.com/johndoe',
+      linkedin: 'https://www.linkedin.com/in/johndoe'
+    };
 
-function App() {
-  return (
-    <div>
-      <NavBar />
-      <Home />
-      <About />
-    </div>
-  );
+    return (
+      <div>
+        <Home user={user} />
+        <About bio={user.bio} github={user.github} linkedin={user.linkedin} />
+      </div>
+    );
+  }
 }
 
 export default App;
